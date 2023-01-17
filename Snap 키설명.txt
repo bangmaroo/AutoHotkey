@@ -1,0 +1,7 @@
+F2 Pause
+F4 Snap 재실행
+F5 Auto Play Start
+F11 Exit
+F12 Script Reload
+
+
