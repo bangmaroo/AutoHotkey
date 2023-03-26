@@ -147,6 +147,25 @@ F5::		;실행
 
 			sleep, 3000
 		}
+		; 2023.02.01 게임 마지막에 [보상 받기] 버튼 인식 문제 로 이미지 고침 (609,920, 753,1026)
+		ImageSearch, xx, yy, 609,920, CheckW, CheckH, bosang.png ; 다음(게임끝)
+		If ErrorLevel = 0
+		{
+			sleep, 1000
+			;마우스 위치 저장
+			if (isMouseMove = "true")
+				MouseGetPos, mx, my
+
+			Click, %xx%, %yy% Left   ;, 1
+			;MouseMove, 700,700,10
+
+			;마우스 위치 복원
+			if (isMouseMove = "true")
+				Mousemove, mx, my
+
+			sleep, 2000
+		}
+
 		; 2023.01.11부터 좌표를 못찾고 있음. (n1.png), n2.png로 변경해봄 좌표도 조정 (271,920 , 482,999)
 		;ImageSearch, xx, yy, 0, 0, CheckW, CheckH, n1.png ; 다음(게임끝)
 		ImageSearch, xx, yy, 271, 920, CheckW, CheckH, n2.png ; 다음(게임끝)
@@ -164,7 +183,7 @@ F5::		;실행
 			if (isMouseMove = "true")
 				Mousemove, mx, my
 
-			sleep, 3000
+			sleep, 2000
 		}
 
 		; 2023.01.12동기화 불가 팝업이 가끔 뜸.   [무시하고 계속 플레이]
@@ -184,7 +203,7 @@ F5::		;실행
 			if (isMouseMove = "true")
 				Mousemove, mx, my
 
-			sleep, 3000
+			sleep, 2000
 		} else {
 			ImageSearch, xx, yy, 0, 0, 1980, 1040, musi_over.png ; 무시 (마우스 오버시 색상 달라짐)
 			If ErrorLevel = 0
@@ -201,7 +220,7 @@ F5::		;실행
 				if (isMouseMove = "true")
 					Mousemove, mx, my
 
-				sleep, 3000
+				sleep, 2000
 			}
 		}
 		sleep, 2000
